@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/panyutong/code_sample/panyutong_test'
+let g:netrw_dirhist_2='/home/panyutong/dev/se/exparser'
+let g:netrw_dirhist_3='/home/panyutong/tools/opencv-2.4.10/samples/cpp'
+let g:netrw_dirhist_4='/home/panyutong/tools/opencv-2.4.10/samples'
+let g:netrw_dirhist_5='/home/panyutong/dev/se/qs/qsTest'
