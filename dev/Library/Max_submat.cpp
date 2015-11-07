@@ -11,5 +11,6 @@ int main (int argc, char * argv[]) {
   for (int i = 1; i <= case_num; i++) {
     printf("Case #%d: \n", i);
   }
+  cout << inf << endl;
   return 0;
 }
