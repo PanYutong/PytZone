@@ -1,13 +1,4 @@
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <cfloat>
-#include <climits>
-#include <vector>
-#include <cstdio>
-#include <cstdlib>
-#include <algorithm>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int T;
