@@ -7,11 +7,13 @@ const int intinf = 1 << 30;
 
 typedef long long ll;
 
+long long Add(int a, int b) {
+  char * c = (char *)a;
+  return (long long)&c[b];
+}
+
 int main (int argc, char * argv[]) {
-  int case_num = 0;
-  scanf("%d", &case_num);
-  for (int i = 1; i <= case_num; i++) {
-    printf("Case #%d: \n", i);
-  }
+  int a = 5, b = 10;
+  cout << Add(a, b) << endl;
   return 0;
 }

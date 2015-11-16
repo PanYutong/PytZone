@@ -23,7 +23,7 @@ int getTime(int p,int v){
   else return t/v + 1;
 }
 
-bool check(int m){
+bool check(int m) {
   //printf("m=%d\n",m);
   int sumQ = 0;
   for(int i=0; i<N; ++i){
@@ -57,7 +57,7 @@ int main(int argc, const char * argv[]) {
   scanf("%d",&T);
   while(T--){
     init();
-    int l=0, m , r=10000*N;
+    int l=0, m , r=10000;
     int ans = -1;
     while(l<=r){
       m = (l+r)/2;
