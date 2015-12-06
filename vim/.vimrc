@@ -10,6 +10,8 @@ set smartindent
 set hlsearch
 set incsearch
 nnoremap <leader><space> :nohlsearch<CR>
+imap <Tab> <C-n>
+imap <S-Tab> <C-p>
 
 colo delek
 
