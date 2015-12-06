@@ -3,8 +3,7 @@
 bool R[N][N], D[N][N], v[N][N];
 int m, n;
 
-void dfs(int r, int c)
-{
+void dfs(int r, int c) {
   int d = rand() % 4, dd = rand()%2 ? 1 : 3;
   v[r][c] = true;
   for (int i = 0; i < 4; i++) {
@@ -21,8 +20,7 @@ void dfs(int r, int c)
   }
 }
 
-int main()
-{
+int main() {
   scanf("%d%d", &m, &n);
   dfs(0, 0);
   for (int c = 0; c < n; c++)
