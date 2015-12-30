@@ -16,3 +16,4 @@ imap <S-Tab> <C-p>
 colo delek
 
 au BufRead,BufNewFile *.txx set filetype=cpp
+au BufRead,BufNewFile *.c set filetype=cpp
