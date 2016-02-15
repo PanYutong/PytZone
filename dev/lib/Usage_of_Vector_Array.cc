@@ -3,7 +3,7 @@ using namespace std;
 
 
 int main(int argc, char * argv[]) {
-  vector < vector <bool> > haha[100];
+  vector<vector<bool> > haha[100];
   for (int i = 0; i < 100; i++) {
     haha[i].resize(100);
     for (int j = 0; j < 100; j++) {
