@@ -13,7 +13,7 @@ nnoremap <leader><space> :nohlsearch<CR>
 imap <Tab> <C-n>
 imap <S-Tab> <C-p>
 
-colo delek
+colo badwolf
 
 au BufRead,BufNewFile *.txx set filetype=cpp
 au BufRead,BufNewFile *.c set filetype=cpp
