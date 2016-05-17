@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project( matcher_simple )
+find_package( OpenCV REQUIRED )
+add_executable( matcher_simple matcher_simple.cpp )
+target_link_libraries( matcher_simple ${OpenCV_LIBS} )

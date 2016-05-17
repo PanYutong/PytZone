@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project( Slide_HOG )
+find_package( OpenCV REQUIRED )
+add_executable( Slide_HOG Slide_HOG.cc )
+target_link_libraries( Slide_HOG ${OpenCV_LIBS} )

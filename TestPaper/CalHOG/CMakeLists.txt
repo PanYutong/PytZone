@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project( calhog )
+find_package( OpenCV REQUIRED )
+add_executable( calhog calhog.cc )
+target_link_libraries( calhog ${OpenCV_LIBS} )

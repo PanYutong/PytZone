@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project( generic_descriptor_match )
+find_package( OpenCV REQUIRED )
+add_executable( generic_descriptor_match generic_descriptor_match.cpp )
+target_link_libraries( generic_descriptor_match ${OpenCV_LIBS} )
