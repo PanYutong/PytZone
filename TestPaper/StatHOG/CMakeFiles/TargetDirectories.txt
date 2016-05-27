@@ -1,1 +1,0 @@
-/home/panyutong/TestPaper/StatHOG/CMakeFiles/stathog.dir

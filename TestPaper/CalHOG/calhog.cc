@@ -6,6 +6,7 @@
 #include <cstring>
 #include <ctype.h>
 #include <iostream>
+#include <fstream>
 
 using namespace cv;
 using namespace std;
@@ -25,6 +26,13 @@ int main(int argc, char * argv[]) {
   vector<float> descriptors1;
   hog->compute(imageHdl1, descriptors1, Size(2, 2), Size(0, 0));
   //cout << "descriptors.size = " << descriptors.size() << endl;
+  
+  /*
+  for (int i = 0; i < descriptors1.size(); ++i) {
+   cout << descriptors1[i] << ' ';
+  }
+  */
+
   imageMat2 = imread(argv[2], 1);
   if (!imageMat2.data) {
     printf("No image data.\n");
@@ -39,7 +47,19 @@ int main(int argc, char * argv[]) {
     cross += descriptors1[i] * descriptors2[i];
   }
 
-  cout << cross << endl;
+  vector<float> tpl_descriptors;
+  string cfg_file_name =
+      "/home/panyutong/PytZone/TestPaper/Config/three_normal.cfg";
+  ifstream ifile0(cfg_file_name.c_str(), ios::in);
+  float temp;
+  while (ifile0 >> temp) tpl_descriptors.push_back(temp);
+
+  double cross_tpl = 0;
+  for (int i = 0; i < descriptors1.size(); ++i) {
+    cross_tpl += descriptors1[i] * tpl_descriptors[i];
+  }
+
+  cout << cross_tpl << endl;
 
   return 0;
 }

@@ -1,0 +1,8 @@
+/home/panyutong/PytZone/TestPaper/Data/three_crop_1.png
+/home/panyutong/PytZone/TestPaper/Data/three_crop_20.png
+/home/panyutong/PytZone/TestPaper/Data/three_crop_38.png
+/home/panyutong/PytZone/TestPaper/Data/three_crop_45.png
+/home/panyutong/PytZone/TestPaper/Data/three_crop_46.png
+/home/panyutong/PytZone/TestPaper/Data/three_crop_47.png
+/home/panyutong/PytZone/TestPaper/Data/three_crop_6.png
+/home/panyutong/PytZone/TestPaper/Data/three_crop_8.png
