@@ -1,0 +1,1 @@
+/home/panyutong/PytZone/TestPaper/DownSample/CMakeFiles/downsample.dir

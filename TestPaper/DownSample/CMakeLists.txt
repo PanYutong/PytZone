@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project( downsample )
+find_package( OpenCV REQUIRED )
+add_executable( downsample downsample.cc )
+target_link_libraries( downsample ${OpenCV_LIBS} )

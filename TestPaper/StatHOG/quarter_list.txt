@@ -1,0 +1,5 @@
+/home/panyutong/PytZone/TestPaper/Data_Quater/crop32.png
+/home/panyutong/PytZone/TestPaper/Data_Quater/crop38.png
+/home/panyutong/PytZone/TestPaper/Data_Quater/crop45.png
+/home/panyutong/PytZone/TestPaper/Data_Quater/crop46.png
+/home/panyutong/PytZone/TestPaper/Data_Quater/crop47.png

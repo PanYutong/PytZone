@@ -37,13 +37,15 @@ int main(int argc, char * argv[]) {
     return -1;
   }
 
+  resize(test_paper, test_paper, Size(), 0.5, 0.5, INTER_AREA);
+
   int section = atoi(argv[2]), div_width;
   div_width = test_paper.cols / section;
 
   // read template descriptors data from config file
   string cfg_file_name =
-      "/home/panyutong/PytZone/TestPaper/Config/three_normal.cfg";
-  conf_value = 3000.0;
+      "/home/panyutong/PytZone/TestPaper/Config/quarter_normal.cfg";
+  conf_value = 700.0;
   ifstream ifile0(cfg_file_name.c_str(), ios::in);
   float temp;
   while (ifile0 >> temp) tpl_descriptors.push_back(temp);
@@ -53,15 +55,18 @@ int main(int argc, char * argv[]) {
 
   vector<Point> candidate;
 
-  if (find_candidate(test_paper, candidate) <= 1) {
-    tpl_descriptors.clear();
-    cfg_file_name = "/home/panyutong/PytZone/TestPaper/Config/three_square.cfg";
-    conf_value = 2800.0;
-    ifstream ifile3(cfg_file_name.c_str(), ios::in);
-    while (ifile3 >> temp) tpl_descriptors.push_back(temp);
-    if (find_candidate(test_paper, candidate) < 1) {
-      cout << "Can not figure out!" << endl;
-    }
+  // find normal candidates
+  find_candidate(test_paper, candidate);
+
+  // find square candidates
+  tpl_descriptors.clear();
+  cfg_file_name =
+      "/home/panyutong/PytZone/TestPaper/Config/quarter_square.cfg";
+  conf_value = 700.0;
+  ifstream ifile3(cfg_file_name.c_str(), ios::in);
+  while (ifile3 >> temp) tpl_descriptors.push_back(temp);
+  if (find_candidate(test_paper, candidate) < 1) {
+    cout << "Can not figure out!" << endl;
   }
 
   // draw rectangles
@@ -121,6 +126,7 @@ int main(int argc, char * argv[]) {
     }
   }
 
+  /*
   stack <pair <Point, Point> > connect_pool;
   while (!region.empty()) {
     vector <pair <Point, Point> >::iterator it = region.begin();
@@ -128,12 +134,13 @@ int main(int argc, char * argv[]) {
     merge_connection(img_s, connect_pool);
     while (!connect_pool.empty()) connect_pool.pop();
   }
+  */
 
   end = time(NULL);
   cout << "Use: " << end - start << 's' << endl;
 
   // write result according to the input image name
-  string write_file_name = "/home/panyutong/PytZone/TestPaper/Result/";
+  string write_file_name = "/home/panyutong/PytZone/TestPaper/Result_Quarter/";
   char *res_name = argv[1];
   int file_length = strlen(argv[1]);
   stack <char> name_bucket;
@@ -143,7 +150,7 @@ int main(int argc, char * argv[]) {
     write_file_name += name_bucket.top();
     name_bucket.pop();
   }
-  cout << write_file_name << endl;
+  resize(img_s, img_s, Size(), 2, 2, CV_INTER_CUBIC);
   imwrite(write_file_name, img_s);
 
   return 0;
@@ -152,11 +159,11 @@ int main(int argc, char * argv[]) {
 double calHog(Mat img) {
   Mat imgHdl;
 
-  resize(img, imgHdl, Size(256, 64));
+  resize(img, imgHdl, Size(128, 32));
 
   HOGDescriptor *hog =
-      new HOGDescriptor(cvSize(64, 32), cvSize(32, 32),
-                        cvSize(32, 32), cvSize(32, 32), 9);
+      new HOGDescriptor(cvSize(32, 16), cvSize(16, 16),
+                        cvSize(16, 16), cvSize(8, 8), 9);
 
   vector<float> img_descriptors;
 
@@ -170,12 +177,12 @@ double calHog(Mat img) {
 }
 
 int find_candidate(Mat source, vector<Point> &can) {
-  for (int rect_width = 111, rect_height = 27; rect_width <= 165;
-       rect_width += 27, rect_height += 4) {
+  for (int rect_width = 56, rect_height = 15; rect_width <= 86;
+       rect_width += 15, rect_height += 4) {
     for (int rect_x = 10; rect_x < source.cols - rect_width;
-         rect_x +=  22) {
+         rect_x +=  50) {
       for (int rect_y = 10; rect_y < source.rows - rect_height;
-           rect_y +=  2) {
+           rect_y +=  10) {
         Mat ROI(source, Rect(rect_x, rect_y, rect_width, rect_height));
         double score = 0;
         score = calHog(ROI);
@@ -187,12 +194,10 @@ int find_candidate(Mat source, vector<Point> &can) {
           mid.x = (topLeft.x + btmRight.x) / 2;
           mid.y = (topLeft.y + btmRight.y) / 2;
           can.push_back(mid);
-          rect_y += rect_height / 2;
           //rectangle(img_s, topLeft, btmRight, Scalar(255, 0, 0), 2, 8, 0);
         }
       }
     }
-    if (can.size() > 1) break;
   }
   return can.size();
 }

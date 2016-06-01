@@ -13,15 +13,15 @@ using namespace std;
 int main(int argc, char * argv[]) {
   string file_name;
   HOGDescriptor *hog =
-      new HOGDescriptor(cvSize(64, 32), cvSize(32, 32),
-                        cvSize(32, 32), cvSize(32, 32), 9);
+      new HOGDescriptor(cvSize(32, 16), cvSize(16, 16),
+                        cvSize(16, 16), cvSize(8, 8), 9);
 
-  vector<float> descriptors(29682);
+  vector<float> descriptors;
 
   int num = 0;
 
   string f_tpl =
-      "/home/panyutong/PytZone/TestPaper/StatHOG/three_square_list.txt";
+      "/home/panyutong/PytZone/TestPaper/StatHOG/quarter_list.txt";
   ifstream ifile(f_tpl.c_str(), ios::in);
 
   while (getline(ifile, file_name)) {
@@ -32,15 +32,14 @@ int main(int argc, char * argv[]) {
       printf("No image data.\n");
       return -1;
     }
-    resize(imageMat1, imageHdl1, Size(256, 64));
+    resize(imageMat1, imageHdl1, Size(128, 32));
 
     vector<float> descriptors1;
     hog->compute(imageHdl1, descriptors1, Size(2, 2), Size(0, 0));
+    if (num == 1) descriptors.resize(descriptors1.size());
 
-    for (int i = 0; i < descriptors1.size(); ++i) {
+    for (int i = 0; i < descriptors1.size(); ++i)
       descriptors[i] += descriptors1[i];
-      cout << descriptors1.size() << endl;
-    }
   }
 
   for (int i = 0; i < descriptors.size(); ++i) {
@@ -51,6 +50,7 @@ int main(int argc, char * argv[]) {
   for (int i = 0; i < descriptors.size(); ++i) {
     ofile << descriptors[i] << ' ';
   }
+  cout << descriptors.size() << endl;
 
   return 0;
 }

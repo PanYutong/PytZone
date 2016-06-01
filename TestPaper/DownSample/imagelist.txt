@@ -1,0 +1,16 @@
+/home/panyutong/PytZone/TestPaper/Data/1.png
+/home/panyutong/PytZone/TestPaper/Data/3.png
+/home/panyutong/PytZone/TestPaper/Data/14.png
+/home/panyutong/PytZone/TestPaper/Data/18.png
+/home/panyutong/PytZone/TestPaper/Data/20.png
+/home/panyutong/PytZone/TestPaper/Data/22.png
+/home/panyutong/PytZone/TestPaper/Data/28.png
+/home/panyutong/PytZone/TestPaper/Data/29.png
+/home/panyutong/PytZone/TestPaper/Data/32.png
+/home/panyutong/PytZone/TestPaper/Data/35.png
+/home/panyutong/PytZone/TestPaper/Data/36.png
+/home/panyutong/PytZone/TestPaper/Data/38.png
+/home/panyutong/PytZone/TestPaper/Data/42.png
+/home/panyutong/PytZone/TestPaper/Data/45.png
+/home/panyutong/PytZone/TestPaper/Data/46.png
+/home/panyutong/PytZone/TestPaper/Data/47.png

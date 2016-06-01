@@ -18,11 +18,11 @@ int main(int argc, char * argv[]) {
     printf("No image data.\n");
     return -1;
   }
-  resize(imageMat1, imageHdl1, Size(256, 64));
+  resize(imageMat1, imageHdl1, Size(128, 32));
 
   HOGDescriptor *hog =
-      new HOGDescriptor(cvSize(64, 32), cvSize(32, 32), 
-                        cvSize(32, 32), cvSize(32, 32), 9);
+      new HOGDescriptor(cvSize(32, 16), cvSize(16, 16), 
+                        cvSize(16, 16), cvSize(8, 8), 9);
   vector<float> descriptors1;
   hog->compute(imageHdl1, descriptors1, Size(2, 2), Size(0, 0));
   //cout << "descriptors.size = " << descriptors.size() << endl;
@@ -38,7 +38,7 @@ int main(int argc, char * argv[]) {
     printf("No image data.\n");
     return -1;
   }
-  resize(imageMat2, imageHdl2, Size(256, 64));
+  resize(imageMat2, imageHdl2, Size(128, 32));
 
   vector<float> descriptors2;
   hog->compute(imageHdl2, descriptors2, Size(2, 2), Size(0, 0));
@@ -49,7 +49,7 @@ int main(int argc, char * argv[]) {
 
   vector<float> tpl_descriptors;
   string cfg_file_name =
-      "/home/panyutong/PytZone/TestPaper/Config/three_normal.cfg";
+      "/home/panyutong/PytZone/TestPaper/Config/quarter_square.cfg";
   ifstream ifile0(cfg_file_name.c_str(), ios::in);
   float temp;
   while (ifile0 >> temp) tpl_descriptors.push_back(temp);
