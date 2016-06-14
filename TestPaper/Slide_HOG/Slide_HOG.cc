@@ -62,7 +62,7 @@ int main(int argc, char * argv[]) {
   tpl_descriptors.clear();
   cfg_file_name =
       "/home/panyutong/PytZone/TestPaper/Config/quarter_square.cfg";
-  conf_value = 700.0;
+  conf_value = 780.0;
   ifstream ifile3(cfg_file_name.c_str(), ios::in);
   while (ifile3 >> temp) tpl_descriptors.push_back(temp);
   if (find_candidate(test_paper, candidate) < 1) {
