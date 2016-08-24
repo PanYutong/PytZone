@@ -6,7 +6,8 @@ double change_root(double N) {
 }
 
 int main(int argc, char * argv[]) {
-  cout << 0.2 * -1 * change_root(0.2) + 0.5 * -1 * change_root(0.5)
-    + 0.3 * -1 * change_root(0.3) << endl;
+  double sum = 0;
+  sum = (14375 * 13) * (1.08);
+  cout << sum << endl;
   return 0;
 }
