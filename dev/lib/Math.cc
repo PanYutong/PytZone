@@ -6,8 +6,7 @@ double change_root(double N) {
 }
 
 int main(int argc, char * argv[]) {
-  double sum = 0;
-  sum = (14375 * 13) * (1.08);
-  cout << sum << endl;
+  char p = '+';
+  printf("%d\n", atoi(p));
   return 0;
 }

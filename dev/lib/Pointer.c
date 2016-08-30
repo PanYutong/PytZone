@@ -5,8 +5,9 @@
 #include <string.h>
 
 int main(int argc, char * argv[]) {
-  long long a = 1000000000000LL;
-  long long b = 1000000000000LL;
-  printf("%lld\n", a * b);
+  int* i = (int*)malloc(sizeof(int) * 10);
+  int* j = i;
+  j += 1;
+  printf("i = %d, j = %d\n", i, j);
   return 0;
 }
