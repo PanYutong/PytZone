@@ -1,18 +1,18 @@
 //#include <bits/stdc++.h>
 //using namespace std;
 #include <stdio.h>
+#include <string.h>
+#include <stdint.h>
 
-#define igt_main \
-  static void igt_tokencat(__real_main, __LINE__)(void); \
-  int main(int argc, char **argv) { \
-  igt_subtest_init_parse_opts(&argc, argv, NULL, NULL, NULL, \
-      NULL, NULL); \
-  igt_tokencat(__real_main, __LINE__)(); \
-  igt_exit(); \
-  } \
-  static void igt_tokencat(__real_main, __LINE__)(void) \
+#define igt_main(x) \
+  int a = 1; \
+  int b = 1; \
+  int c = 1; \
+  printf("a = %d\n", a); \
+  uint##x##_t var = 32;
 
 int main(int argc, char * argv[]) {
-  int par1 = 1, par2 = 2;
+  printf("LINE : %d\n", __LINE__);
+  printf("DATA : %s\n", __DATE__);
   return 0;
 }

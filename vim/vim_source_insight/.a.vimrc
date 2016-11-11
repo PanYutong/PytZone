@@ -5,6 +5,8 @@ set mouse=a
 set history=50
 set nobackup
 
+nnoremap <leader><space> :nohlsearch<CR>
+
 filetype plugin indent on
 "set cindent
 set tabstop=2
