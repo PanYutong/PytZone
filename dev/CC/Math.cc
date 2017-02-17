@@ -7,6 +7,8 @@ double change_root(double N) {
 
 int main(int argc, char * argv[]) {
   char p = '+';
-  printf("%d\n", atoi(p));
+  int maxPowerOf3 = (int)pow(3, (int)(log10(0x7fffffff) / log10(3)));
+  printf("%d\n", maxPowerOf3);
+  printf("%d\n", 0x7fffffff);
   return 0;
 }

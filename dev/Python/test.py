@@ -11,6 +11,8 @@ from math import sqrt
 
 # list
 # girls = ['xichuan', 'jingjing', 'future']
+# for i in girls[0:2]:
+#     print i
 # for index, girl in enumerate(girls):
 #     print '#%d: %s' % (index + 1, girl)
 # print 'future' in girls
@@ -71,7 +73,9 @@ from math import sqrt
 # d1 = np.array([1, 2, 3])
 # d2 = np.array([[1.2, 2], [4, 5], [7, 8]])
 # d3 = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [11, 12, 13]]])
-# int_index = d2[[0, 1], [0, 0]]
+# int_index = d2[[0, 1], [0, 1]]
+# print d2
+# print int_index
 # d2_1 = np.array([[1, 2], [1, 2]])
 # c_arr = np.array([chr(48), chr(18)])
 # print c_arr
@@ -89,8 +93,12 @@ from math import sqrt
 
 # x = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 # v = np.array([[1, 2, 3]])
-# vtile = np.tile(v, (1, 4))
+# vtile = np.tile(v, (4, 4))
 # print v.shape
+# if v.shape == (1, 3):
+#     print "pyt"
+# print v
+# print vtile
 
 # image operations!!!
 # matA = np.array([[1, 2], [3, 4]])
@@ -114,27 +122,63 @@ from math import sqrt
 # plt.legend(['Sine', 'Cosine'])
 # plt.show()
 
-class NBtest(object):
+# class NBtest(object):
+# 
+#     def __init__(self):
+#         pass
+# 
+#     def test1(self, X):
+#         self.Xtr = X
+# 
+#     def show(self):
+#         print self.Xtr
+# 
+#     def mindist(self, X):
+#         
+#         for i in range(2):
+# 
+#             dist = np.linalg.norm(self.Xtr, X)
+#             print dist
+# 
+# arr1 = np.array([[1, 2, 3], [4, 5, 6]])
+# arr2 = np.array([[3, 8, 4], [5, 7, 9]])
+# 
+# nb1 = NBtest()
+# nb1.test1(arr1)
+# nb1.mindist(arr2)
 
-    def __init__(self):
-        pass
+# x = np.random.random((3, 3, 3))
+# print x
 
-    def test1(self, X):
-        self.Xtr = X
+data = open('input.txt', 'r').read()
+chars = list(set(data))
+data_size, vocab_size = len(data), len(chars)
+char_to_idx = {ch:i for i, ch in enumerate(chars)}
+idx_to_char = {i:ch for i, ch in enumerate(chars)}
 
-    def show(self):
-        print self.Xtr
+hidden_size = 100
+seq_length = 25
+learning_rate = 1e-1
 
-    def mindist(self, X):
-        
-        for i in range(2):
+Wxh = np.random.randn(hidden_size, vocab_size) * 0.01
+Whh = np.random.randn(hidden_size, hidden_size) * 0.01
+Why = np.random.randn(vocab_size, hidden_size) * 0.01
+bh = np.zeros((hidden_size, 1))
+by = np.zeros(vocab_size, 1))
 
-            dist = np.linalg.norm(self.Xtr, X)
-            print dist
 
-arr1 = np.array([[1, 2, 3], [4, 5, 6]])
-arr2 = np.array([[3, 8, 4], [5, 7, 9]])
 
-nb1 = NBtest()
-nb1.test1(arr1)
-nb1.mindist(arr2)
+
+
+n, p = 0, 0
+mWxh, mWhh, mWhy = np.zeros_like(Wxh), np.zero_like(Whh), np.zeros_like(Why)
+mbh, mby = np.zeros_like(bh), np.zeros_like(by)
+smooth_loss = -np.log(1.0 / vocab_size) * seq_length
+while True:
+    if p + seq_length + 1 > len(data) or n == 0:
+        hprev = np.zeros((hidden_size, 1))
+        p = 0
+        inputs = [char_to_idx[ch] for ch in data[p:p + seq_length]]
+        targets = [char_to_idx[ch] for ch in data[p + 1: p + seq_length + 1]]
+
+    if n % 100 == 0:
