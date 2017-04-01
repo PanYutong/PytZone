@@ -9,7 +9,9 @@ from math import sqrt
 #
 # print nums, len(nums)
 
-# list
+"""
+list
+"""
 # girls = ['xichuan', 'jingjing', 'future']
 # for i in girls[0:2]:
 #     print i
@@ -28,20 +30,29 @@ from math import sqrt
 # squares = [x ** 2 for x in nums]
 # print squares
 
-# dictionary
+"""
+dictionary
+"""
 # adore = {'panyutong': 25, 'future': 26}
 #
 # for name, age in adore.iteritems():
 #     print '%s is %d years old.' % (name, age)
 
-# set
+"""
+set
+"""
 # axis = [(1,2,3), (4,5,6)]
 # print axis[1][1]
 
-#
-# Function Definition
-#
+"""
+tuple
+"""
+t = (5, 6)
+print type(t)
 
+"""
+Function Definition
+"""
 # def myfunc(name, flag = False):
 #     if flag:
 #         print 'Yes!'
@@ -50,10 +61,9 @@ from math import sqrt
 # myfunc('panyutong')
 # myfunc('panyutong', True)
 
-#
-# Class Definition
-#
-
+"""
+Class Definition
+"""
 # class MyPerson(object):
 #
 #     def __init__(self, name):
@@ -65,11 +75,9 @@ from math import sqrt
 # p = MyPerson('panyutong')
 # p.intro()
 
-#
-# Numpy Usage
-#
-
-
+"""
+Numpy Usage
+"""
 # d1 = np.array([1, 2, 3])
 # d2 = np.array([[1.2, 2], [4, 5], [7, 8]])
 # d3 = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [11, 12, 13]]])
@@ -80,14 +88,14 @@ from math import sqrt
 # c_arr = np.array([chr(48), chr(18)])
 # print c_arr
 
-#
-# Create a random matrix
-#
+"""
+Create a random matrix
+"""
 # rand = np.random.random((2, 2, 2))
 # print rand
 
-# a = np.array([[[1, 2, 3], [3, 4, 5]], [[5, 6, 7], [7, 8, 9]]])
-# print a.shape
+a = np.array([[[1, 2, 3], [3, 4, 5]], [[5, 6, 7], [7, 8, 9]]])
+print a.shape
 # print np.sum(a)
 # print np.sum(a, axis = 1)
 
@@ -100,7 +108,9 @@ from math import sqrt
 # print v
 # print vtile
 
-# image operations!!!
+"""
+image operations!!!
+"""
 # matA = np.array([[1, 2], [3, 4]])
 # matB = np.array([[4, 5], [2, 4]])
 # d = cdist(matA, matB, 'euclidean')
@@ -149,36 +159,3 @@ from math import sqrt
 
 # x = np.random.random((3, 3, 3))
 # print x
-
-data = open('input.txt', 'r').read()
-chars = list(set(data))
-data_size, vocab_size = len(data), len(chars)
-char_to_idx = {ch:i for i, ch in enumerate(chars)}
-idx_to_char = {i:ch for i, ch in enumerate(chars)}
-
-hidden_size = 100
-seq_length = 25
-learning_rate = 1e-1
-
-Wxh = np.random.randn(hidden_size, vocab_size) * 0.01
-Whh = np.random.randn(hidden_size, hidden_size) * 0.01
-Why = np.random.randn(vocab_size, hidden_size) * 0.01
-bh = np.zeros((hidden_size, 1))
-by = np.zeros(vocab_size, 1))
-
-
-
-
-
-n, p = 0, 0
-mWxh, mWhh, mWhy = np.zeros_like(Wxh), np.zero_like(Whh), np.zeros_like(Why)
-mbh, mby = np.zeros_like(bh), np.zeros_like(by)
-smooth_loss = -np.log(1.0 / vocab_size) * seq_length
-while True:
-    if p + seq_length + 1 > len(data) or n == 0:
-        hprev = np.zeros((hidden_size, 1))
-        p = 0
-        inputs = [char_to_idx[ch] for ch in data[p:p + seq_length]]
-        targets = [char_to_idx[ch] for ch in data[p + 1: p + seq_length + 1]]
-
-    if n % 100 == 0:

@@ -6,9 +6,9 @@ double change_root(double N) {
 }
 
 int main(int argc, char * argv[]) {
-  char p = '+';
-  int maxPowerOf3 = (int)pow(3, (int)(log10(0x7fffffff) / log10(3)));
-  printf("%d\n", maxPowerOf3);
-  printf("%d\n", 0x7fffffff);
+  int i = 16;
+  int j;
+  j = i >> 1;
+  cout << i << endl;
   return 0;
 }
