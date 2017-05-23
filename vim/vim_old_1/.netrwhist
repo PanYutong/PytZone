@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/panyutong/Downloads/opencv-2.4.11/modules/core/include/opencv2/core'
-let g:netrw_dirhist_2='/home/panyutong/Research/dev/ITK/Modules/Filtering/ImageFeature'
-let g:netrw_dirhist_3='/home/panyutong/Research/dev/ITK/Modules/Core'
-let g:netrw_dirhist_4='/home/panyutong/Research/VolViewSrc/VolViewLibraries/KWVolView/CMake'
-let g:netrw_dirhist_5='/home/panyutong/Research/src/VolViewSrc'

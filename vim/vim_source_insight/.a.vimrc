@@ -1,9 +1,12 @@
 syntax enable
 set undodir=~/.vimundo/
 set hidden
-set mouse=a
+" set mouse=a
 set history=50
 set nobackup
+
+" Add a line at 81 column
+set colorcolumn=81
 
 nnoremap <leader><space> :nohlsearch<CR>
 
@@ -22,10 +25,13 @@ set hlsearch
 :hi Search ctermbg=7
 set autowrite
 "set foldmethod=syntax
-set fileencoding=UTF-8
-set fileencodings=ucs-bom,utf-8,default,gb2312
+set fileencoding=utf-8
+set fileencodings=utf-8,default,gb2312
 
-let g:solarized_termcolors=256
+" let g:solarized_termcolors=256
+
+set background=dark
+colorscheme badwolf
 
 map f <Plug>(easymotion-prefix)
 
@@ -42,7 +48,7 @@ source ~/.se.vimrc
 
 """""""""" TagList
 " taglist configuration
-let Tlist_Ctags_Cmd ='/usr/local/bin/ctags'
+let Tlist_Ctags_Cmd ='/usr/bin/ctags'
 " Taglist plugin mapping
 " noremap <silent> <Leader>t :TlistToggle<CR>
 :noremap <F1> <c-w><c-p>

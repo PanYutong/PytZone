@@ -8,7 +8,5 @@ int main(int argc, char * argv[]) {
 
   string a1 = "GOOGLENET";
 
-  if (a1 == "GOOGLENET") cout << "Yes!" << endl;
-
   return 0;
 }

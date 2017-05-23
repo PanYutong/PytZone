@@ -43,4 +43,3 @@ let g:SrcExpl_prevDefKey = "<C-F3>"
 
 " // Set "<F4>" key for displaying the next definition in the jump list 
 let g:SrcExpl_nextDefKey = "<C-F4>" 
-

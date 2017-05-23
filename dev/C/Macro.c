@@ -4,6 +4,9 @@
 #include <string.h>
 #include <stdint.h>
 
+auto TOP_L1 = false;
+
+
 #define igt_main(x) \
   int a = 1; \
   int b = 1; \
