@@ -74,7 +74,7 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 " autocmd vimenter *.cpp NERDTree
 autocmd vimenter *.cpp Tlist
 autocmd vimenter *.cpp SrcExpl
-autocmd VimEnter *.cpp wincmd w
+" autocmd VimEnter *.cpp wincmd w
 
 "autocmd BufNew   * wincmd p
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
