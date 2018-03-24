@@ -28,10 +28,10 @@ set autowrite
 set fileencoding=utf-8
 set fileencodings=utf-8,default,gb2312
 
-set background=light
-let g:solarized_termcolors=256
-colorscheme solarized
-" colorscheme badwolf
+" set background=light
+" let g:solarized_termcolors=256
+" colorscheme solarized
+colorscheme badwolf
 
 map f <Plug>(easymotion-prefix)
 
@@ -58,7 +58,7 @@ let Tlist_Ctags_Cmd ='/usr/bin/ctags'
 " Taglist plugin config
 let Tlist_Use_Right_Window = 1
 let Tlist_Inc_Winwidth = 0
-let Tlist_WinWidth = 30
+let Tlist_WinWidth = 38
 " let Tlist_GainFocus_On_ToggleOpen= 1
 " let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
@@ -70,8 +70,8 @@ autocmd BufWritePost *.h :TlistUpdate
 autocmd BufWritePost *.jce :TlistUpdate
 
 """""""""" NerdTree (and vimenter events)
-" nnoremap <C-n> :NERDTreeToggle<CR>
-autocmd vimenter *.cpp NERDTree
+nnoremap <C-n> :NERDTreeToggle<CR>
+" autocmd vimenter *.cpp NERDTree
 autocmd vimenter *.cpp Tlist
 autocmd vimenter *.cpp SrcExpl
 autocmd VimEnter *.cpp wincmd w
