@@ -39,7 +39,7 @@ let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ."
 let g:SrcExpl_updateTagsKey = "<F12>" 
 
 " // Set "<F3>" key for displaying the previous definition in the jump list 
-let g:SrcExpl_prevDefKey = "<C-d>" 
+let g:SrcExpl_prevDefKey = "<C-F11>" 
 
 " // Set "<F4>" key for displaying the next definition in the jump list 
-let g:SrcExpl_nextDefKey = "<C-D>" 
+let g:SrcExpl_nextDefKey = "<C-F10>" 
